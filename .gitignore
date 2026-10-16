@@ -26,6 +26,8 @@ pnpm-debug.log*
 *.crt
 secrets/
 *.local
+# ESP32 firmware Wi-Fi credentials (copy secrets_example.h to secrets.h)
+secrets.h
 # Firebase / Google service-account credentials
 *firebase-adminsdk*.json
 service-account*.json

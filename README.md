@@ -28,7 +28,7 @@ A conceptual 3D visualization of the DHIYA project in an Expo-style setting. It 
 - [Recharts](https://recharts.org/) for charts (lazy-loaded)
 - [Vitest](https://vitest.dev/) for unit tests
 - [ESLint 9](https://eslint.org/) with `typescript-eslint` and React Hooks rules
-- ESP32 firmware exposing a small JSON HTTP API (firmware is not part of this repository)
+- ESP32-S3 firmware (Arduino) exposing a small JSON HTTP API, in [`hardware/esp32/`](hardware/esp32/)
 
 ## Prerequisites
 
@@ -83,7 +83,7 @@ The dashboard is published at **https://saracs2.github.io/dhiya/**. [`.github/wo
 
 The browser never calls the ESP32 directly. It requests `/esp32/...`, and the Vite dev/preview server forwards those requests to the board. This avoids CORS issues and keeps the board's address out of the front-end code.
 
-1. **Put the ESP32 and your computer on the same Wi-Fi network.** Wi-Fi credentials belong in the ESP32 firmware, which is not part of this repository. Never commit them here.
+1. **Put the ESP32 and your computer on the same Wi-Fi network.** The firmware reads its Wi-Fi credentials from a git-ignored `secrets.h` (see the [firmware README](hardware/esp32/README.md#wi-fi-setup)). Never commit them.
 2. **Find the board's IP address**, for example from the serial monitor at boot or your router's client list.
 3. **Tell DHIYA where the board is.** Copy `.env.example` to `.env.local`, then set the address:
 
@@ -170,6 +170,10 @@ src/
 ```
 
 Chart colours were checked with a colour-vision-deficiency palette validator against the dark chart surface (`#111a2b`).
+
+## ESP32-S3 firmware
+
+The Arduino sketch for the solar tracker (LDR tracking, cleaning servo, panel voltage and the HTTP API above) is in [`hardware/esp32/`](hardware/esp32/). [`hardware/esp32/README.md`](hardware/esp32/README.md) covers the board, libraries, pin assignments, Wi-Fi setup, upload steps and API endpoints. The hardware is controlled only over your local network, through `npm run dev`; the GitHub Pages site can't reach it.
 
 ## MATLAB / Simulink
 
