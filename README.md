@@ -165,6 +165,10 @@ src/
 
 Chart colours were checked with a colour-vision-deficiency palette validator against the dark chart surface (`#111a2b`).
 
+## MATLAB / Simulink
+
+The original MATLAB scripts, the Phase 3 Simulink model (`DHIYA_Phase3.slx`) and the exported result figures are in [`matlab/`](matlab/). See [`matlab/README.md`](matlab/README.md) for how to open and run them (MATLAB R2026a + Simulink). They are separate from the web dashboard and aren't needed to build or run it.
+
 ## Security notes
 
 - Never commit `.env`, `.env.local`, Wi-Fi credentials, API keys or private keys. Don't put secrets in `VITE_*` variables either, because they are compiled into the public site. `.gitignore` excludes `.env*` (except `.env.example`), `*.pem`, `*.key` and `secrets/`.

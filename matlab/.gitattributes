@@ -1,0 +1,4 @@
+# Store the MATLAB/Simulink files exactly as delivered (no line-ending conversion).
+* -text
+*.slx binary
+*.png binary
