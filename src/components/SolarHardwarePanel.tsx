@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import {
   getSolarStatus,
+  isLocalHardwareAvailable,
   startCleaning,
   setTracking,
   type SolarStatus,
@@ -11,8 +12,12 @@ export default function SolarHardwarePanel() {
   const [data, setData] = useState<SolarStatus | null>(null);
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
+  const [hardwareAvailable] = useState(isLocalHardwareAvailable);
 
   useEffect(() => {
+    // Without the local proxy every request would fail, so don't poll at all.
+    if (!hardwareAvailable) return;
+
     let active = true;
     let inFlight = false;
 
@@ -51,7 +56,7 @@ export default function SolarHardwarePanel() {
       active = false;
       window.clearInterval(timer);
     };
-  }, []);
+  }, [hardwareAvailable]);
 
   async function handleCleaning() {
     setBusy(true);
@@ -100,9 +105,22 @@ export default function SolarHardwarePanel() {
         <p>
           Connection:{" "}
           <strong>
-            {data ? "Connected" : "Waiting for ESP32"}
+            {data
+              ? "Connected"
+              : hardwareAvailable
+                ? "Waiting for ESP32"
+                : "Not available on this website"}
           </strong>
         </p>
+        {!hardwareAvailable && (
+          <p role="note">
+            Live hardware control only works when the dashboard runs locally
+            (npm run dev) on the same Wi-Fi network as the ESP32. This
+            published website is static and can't reach devices on your local
+            network, so no ESP32 is connected here. The simulated dashboard
+            features keep working.
+          </p>
+        )}
         <p>
           Solar Panel Voltage:{" "}
           <strong>
