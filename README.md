@@ -10,6 +10,18 @@ An interactive dashboard for **DHIYA**, a smart solar energy management concept 
 
 A conceptual 3D visualization of the DHIYA project in an Expo-style setting. It is a static illustration of the concept only. It isn't a screenshot of the dashboard or an output of the simulation, and it doesn't show measured data.
 
+## Solar Tracker V4 — CAD Model and Assembly
+
+![Solar Tracker V4 CAD assembly: tilting solar panel deck with wiper arm on a turntable, mounted on the electronics base](docs/images/solar-tracker-v4-assembly.png)
+
+**[Download Solar Tracker V4 STEP Model](docs/cad/Solar%20Tracker%20V4%20%28open%20bottom%29.step)** (STEP AP242, about 485 KB)
+
+*The Solar Tracker V4 CAD assembly mounted on its base.*
+
+- **The PNG is a visual reference** for the assembly. It's a rendered CAD view, not a photograph of the physical prototype.
+- **The STEP file is the 3D CAD model.** Download it and open it in any STEP-compatible CAD software, such as Onshape, Fusion, FreeCAD or SolidWorks. The link opens the file on GitHub; use **Download raw file** there to save it.
+- The STEP file is named "Solar Tracker V4 (open bottom)" and was exported from Onshape. Its parts match the components visible in the screenshot: the electronics cover and lid, pan tower, turntable with tilt yoke, the two tilting-deck halves, solar panel, wiper arm with microfiber pad, and SG90 servos. The servos, solar panel, breadboard and power module are simplified placeholder ("dummy") parts.
+
 ## Features
 
 - **Live solar simulation**: clean-panel vs. modeled output over a simulated day, with pause/resume, speed control and reset.
