@@ -2,7 +2,7 @@
 
 This folder contains the MATLAB scripts, the Phase 3 Simulink model and the exported figures used to demonstrate the DHIYA smart solar concept. The model compares a fixed, uncleaned 100 W reference panel with DHIYA's condition-based cleaning and idealized tracking over a simulated 24-hour day, at one-minute steps.
 
-The project's original notes are in [`README.txt`](README.txt), kept unchanged. This page summarises how to use the files.
+The project's original notes are in [`README.txt`](README.txt), kept unchanged. This page summarises how to use the files. For a conceptual 3D illustration of the overall project, see [`docs/images/dhiya-3d-visualization.jpg`](../docs/images/dhiya-3d-visualization.jpg).
 
 > **Illustrative simulation only.** All results come from simplified assumptions (sinusoidal irradiance, linear dust build-up, fixed cleaning effectiveness). They are not measured Expo pavilion data or experimentally validated performance. Tracking actuator energy is not included.
 

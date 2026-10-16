@@ -4,6 +4,12 @@ An interactive dashboard for **DHIYA**, a smart solar energy management concept 
 
 > **About the data.** Apart from the **Solar Hardware** panel (live ESP32 readings, see [Connecting the ESP32](#connecting-the-esp32)), every value is **simulated** (computed in the browser), **illustrative** (fictional example data) or **reference** (reported by earlier project simulations). The simulated cleaning cycle does not operate any physical mechanism, and no MATLAB/Simulink model is connected.
 
+## 3D Project Visualization
+
+![Conceptual 3D visualization of the DHIYA project: a circular plaza with pavilion-style buildings, palm trees, a central tower and a display screen](docs/images/dhiya-3d-visualization.jpg)
+
+A conceptual 3D visualization of the DHIYA project in an Expo-style setting. It is a static illustration of the concept only. It isn't a screenshot of the dashboard or an output of the simulation, and it doesn't show measured data.
+
 ## Features
 
 - **Live solar simulation**: clean-panel vs. modeled output over a simulated day, with pause/resume, speed control and reset.
