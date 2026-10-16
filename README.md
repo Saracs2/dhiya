@@ -33,7 +33,7 @@ An interactive dashboard for **DHIYA**, a smart solar energy management concept 
 ## Getting started
 
 ```bash
-git clone https://github.com/<your-github-username>/dhiya.git
+git clone https://github.com/Saracs2/dhiya.git
 cd dhiya
 npm install
 npm run dev          # http://localhost:5173
@@ -66,6 +66,12 @@ npm run preview      # serves dist/ at http://localhost:4173
 ```
 
 `dist/` can be served from any static host or local web server. Live ESP32 data needs the proxy described below, which a plain static host doesn't provide.
+
+### GitHub Pages
+
+The dashboard is published at **https://saracs2.github.io/dhiya/**. [`.github/workflows/deploy-pages.yml`](.github/workflows/deploy-pages.yml) lints, tests, builds and deploys every push to `main`. The relative Vite `base` (`./`) lets the same build work under the `/dhiya/` sub-path.
+
+> **The ESP32 hardware controls don't work on the published site.** GitHub Pages only serves static files: it has no `/esp32` proxy, and an HTTPS page can't call a plain-HTTP device on your local network. On the public site, the Solar Hardware panel shows "Cannot connect to ESP32", while everything else (the simulation, charts, leaderboard and Arabic layout) works normally. To control the hardware, run the dashboard locally with `npm run dev` on the same Wi-Fi network as the ESP32. Reaching the board from the internet would need a separate secure architecture, which this project deliberately doesn't include.
 
 ## Connecting the ESP32
 
@@ -161,5 +167,5 @@ Chart colours were checked with a colour-vision-deficiency palette validator aga
 
 ## Security notes
 
-- Never commit `.env`, `.env.local`, Wi-Fi credentials, API keys or private keys. `.gitignore` excludes `.env*` (except `.env.example`), `*.pem`, `*.key` and `secrets/`.
+- Never commit `.env`, `.env.local`, Wi-Fi credentials, API keys or private keys. Don't put secrets in `VITE_*` variables either, because they are compiled into the public site. `.gitignore` excludes `.env*` (except `.env.example`), `*.pem`, `*.key` and `secrets/`.
 - The ESP32 API has no authentication, so only run it on a trusted local network.
